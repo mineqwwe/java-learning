@@ -1,4 +1,4 @@
-public class If_Task{
+public class ifTask1{
     public static void main(String[] args){
 
         int newPhone = 7988;
@@ -15,8 +15,8 @@ public class If_Task{
         }else{
             System.out.println("都可以");
         }
-        System.out.println("不使用以旧换新："+notGiveCost);
-        System.out.println("使用以旧换新："+doGiveCost);
+        System.out.println("不使用以旧换新："+ notGiveCost);
+        System.out.println("使用以旧换新："+ doGiveCost);
 
     }
 }
