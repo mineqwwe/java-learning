@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ifTask2 {
+public class IfTask2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("输入第一个数字：");

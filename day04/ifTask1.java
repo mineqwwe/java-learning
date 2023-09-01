@@ -1,4 +1,4 @@
-public class ifTask1{
+public class IfTask1{
     public static void main(String[] args){
 
         int newPhone = 7988;

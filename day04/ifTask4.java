@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ifTask4 {
+public class IfTask4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("输入税前工资：");

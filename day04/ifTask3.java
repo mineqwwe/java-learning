@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ifTask3 {
+public class IfTask3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println(" 输入本金：");
