@@ -32,10 +32,9 @@ public class SwitchTask1 {
                 System.out.println("请输入正确的数字");
             }
         }
-        if(!(op == "")){
+        if (!(op == "")) {
             System.out.println(a + op + b + "=" + out);
         }
-        
 
     }
 
