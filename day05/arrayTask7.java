@@ -21,7 +21,8 @@ public class arrayTask7 {
 
         }
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+            // System.out.println(arr[i]);//println
+            System.out.print(arr[i]+" "); //print
 
         }
 
