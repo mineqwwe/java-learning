@@ -12,6 +12,8 @@ public class PhoneTest {
         Phone p2 = new Phone();
         p2.call();
 
+
+        Phone p3 = new Phone();
     }
 
 }
