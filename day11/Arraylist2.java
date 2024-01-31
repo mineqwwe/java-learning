@@ -17,6 +17,7 @@ public class Arraylist2 {
         for (int i = 0; i < teachers.size(); i++) {
             Teacher t = teachers.get(i);
             System.out.println("name: " + t.getName() + ", Professio: " + t.getProfession());
+            System.out.println(t.toString());
         }
 
     }

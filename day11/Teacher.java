@@ -28,4 +28,9 @@ public class Teacher {
         this.profession = profession;
     }
 
+    @Override
+    public String toString() {
+        return "Teacher [name=" + name + ", profession=" + profession + "]";
+    }
+
 }
