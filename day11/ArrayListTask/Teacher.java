@@ -1,4 +1,4 @@
-package day11;
+package day11.ArrayListTask;
 
 public class Teacher {
     private String name;

@@ -1,3 +1,5 @@
+package day09.Task3;
+
 public class GrilFriendTest {
 
     public static void main(String[] args) {

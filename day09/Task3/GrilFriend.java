@@ -1,3 +1,5 @@
+package day09.Task3;
+
 public class GrilFriend {
 
     private String name;

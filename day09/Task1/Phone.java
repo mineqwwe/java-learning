@@ -1,3 +1,5 @@
+package day09.Task1;
+
 public class Phone {
     private String brand;
     private int price;

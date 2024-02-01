@@ -1,3 +1,5 @@
+package day09.Task1;
+
 import java.util.Scanner;
 
 public class PhoneTest {
