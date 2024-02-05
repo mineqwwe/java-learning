@@ -1,3 +1,4 @@
+package day04;
 
 public class LoopsTask7 {
     public static void main(String[] args) {

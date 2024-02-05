@@ -1,3 +1,5 @@
+package day05;
+
 import java.util.Scanner;
 
 public class arrayTask2 {

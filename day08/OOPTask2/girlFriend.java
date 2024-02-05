@@ -1,3 +1,5 @@
+package day08.OOPTask2;
+
 public class girlFriend {
     private String name;
     private double hight;

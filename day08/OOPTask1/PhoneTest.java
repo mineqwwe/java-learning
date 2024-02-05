@@ -1,3 +1,5 @@
+package day08.OOPTask1;
+
 public class PhoneTest {
 
     public static void main(String[] args) {

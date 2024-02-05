@@ -1,3 +1,5 @@
+package day08.OOPTask1;
+
 public class Phone {
     private String brand;
     private String color;

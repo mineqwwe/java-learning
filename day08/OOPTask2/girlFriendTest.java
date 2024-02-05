@@ -1,3 +1,5 @@
+package day08.OOPTask2;
+
 public class girlFriendTest {
     public static void main(String[] args) {
         girlFriend g = new girlFriend();
