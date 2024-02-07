@@ -1,4 +1,4 @@
-
+package day13.InheritanceTask1;
 
 public class Teacher extends Employee {
     public Teacher() {

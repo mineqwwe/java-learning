@@ -1,4 +1,4 @@
-
+package day13.InheritanceTask1;
 
 public class AdminStaff extends Employee {
     public AdminStaff() {

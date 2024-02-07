@@ -1,4 +1,4 @@
-package day13.InheritanceTask4;
+package day13.InheritanceTask6;
 
 public class Test {
     public static void main(String[] args) {

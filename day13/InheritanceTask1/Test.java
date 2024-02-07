@@ -1,3 +1,5 @@
+package day13.InheritanceTask1;
+
 public class Test {
     public static void main(String[] args) {
         // 讲师(Lecturer)和助教(Tutor)

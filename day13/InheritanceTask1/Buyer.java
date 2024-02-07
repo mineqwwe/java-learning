@@ -1,4 +1,4 @@
-
+package day13.InheritanceTask1;
 
 public class Buyer extends AdminStaff {
     public Buyer() {

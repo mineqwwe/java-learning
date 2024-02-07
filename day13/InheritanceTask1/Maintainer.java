@@ -1,3 +1,4 @@
+package day13.InheritanceTask1;
 
 public class Maintainer extends AdminStaff {
     public Maintainer() {
