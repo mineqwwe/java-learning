@@ -1,5 +1,6 @@
 package day14.Polymorphism;
 
+//多态
 public class Test {
     public static void main(String[] args) {
         //多态体现的格式：
