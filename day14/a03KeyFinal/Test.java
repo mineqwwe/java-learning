@@ -1,4 +1,4 @@
-package day14.KeyFinal;
+package day14.a03KeyFinal;
 
 class Test {
     public static void main(String[] args) {

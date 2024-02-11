@@ -1,4 +1,4 @@
-package day14.Polymorphism;
+package day14.a01Polymorphism;
 
 public class Dog extends Animal {
     private  String dog;

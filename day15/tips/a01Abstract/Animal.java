@@ -1,4 +1,4 @@
-package day15.tips.Abstract;
+package day15.tips.a01Abstract;
 
 public abstract class Animal {
     private String name;

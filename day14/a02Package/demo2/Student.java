@@ -1,4 +1,4 @@
-package day14.Package.demo2;
+package day14.a02Package.demo2;
 
 public class Student {
     private int age;
