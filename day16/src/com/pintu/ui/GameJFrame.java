@@ -1,15 +1,29 @@
 package day16.src.com.pintu.ui;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Arrays;
 import java.util.Random;
 
 public class GameJFrame extends JFrame {
 
     int[] icons = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
+    // 白框位置
+    int x = 0;
+    int y = 0;
+
+    // 二维数组
+    int[][] xy = new int[4][4];
+
     public GameJFrame() {
         //初始化窗口
         initJFrame();
+
+        // 初始化键盘监听
+        initKeyListener();
 
         //初始化菜单栏
         initJMenu();
@@ -24,6 +38,7 @@ public class GameJFrame extends JFrame {
     }
 
     private void initData() {
+        // 打乱图片
         Random r = new Random();
         for (int i = 0; i < icons.length; i++) {
             int tmp = icons[i];
@@ -32,19 +47,44 @@ public class GameJFrame extends JFrame {
             icons[i] = icons[index];
             icons[index] = tmp;
         }
+
+        int index = 0;
+        //存入二维数组
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+
+                xy[i][j] = icons[index];
+                if (icons[index] == 0) {
+                    x = i;
+                    y = j;
+                }
+                index++;
+            }
+        }
+
+        System.out.println(Arrays.deepToString(xy));
+        System.out.println(x + " " + y);
     }
 
 
     private void initImage() {
+        this.getContentPane().removeAll();
         int number = 0;
-        for (int j = 0; j < 4; j++) {
-            for (int i = 0; i < 4; i++) {
-                JLabel jLabel = new JLabel(new ImageIcon("C:\\Users\\mineq\\IdeaProjects\\java-learning\\day16\\image\\animal\\animal3\\" + icons[number] + ".jpg"));
-                jLabel.setBounds(105 * i, 105 * j, 105, 105);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                JLabel jLabel = new JLabel(new ImageIcon("day16\\image\\animal\\animal3\\" + xy[j][i] + ".jpg"));
+                jLabel.setBounds(105 * j + 83, 105 * i + 134, 105, 105);
+                jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
                 this.getContentPane().add(jLabel);
                 number++;
             }
         }
+        //后添加的在下
+        JLabel bg = new JLabel(new ImageIcon("day16/image/background.png"));
+        bg.setBounds(40, 40, 508, 560);
+        this.getContentPane().add(bg);
+
+        this.getContentPane().repaint();
     }
 
 
@@ -55,6 +95,72 @@ public class GameJFrame extends JFrame {
         this.setTitle("拼图游戏");
 
         this.setLayout(null);
+    }
+
+    private void initKeyListener() {
+        this.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                //NONE
+
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                //NONE
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT -> {
+                        if (x - 1 < 0) {
+                            break;
+                        }
+                        xy[x][y] = xy[x - 1][y];
+                        xy[x - 1][y] = 0;
+
+                        x = x - 1;
+                        initImage();
+                    }
+                    case KeyEvent.VK_UP -> {
+                        if (y - 1 < 0) {
+                            break;
+                        }
+                        xy[x][y] = xy[x][y - 1];
+                        xy[x][y - 1] = 0;
+
+                        y = y - 1;
+                        initImage();
+                    }
+                    case KeyEvent.VK_RIGHT -> {
+                        if (x + 1 > 3) {
+                            break;
+                        }
+                        xy[x][y] = xy[x + 1][y];
+                        xy[x + 1][y] = 0;
+
+                        x = x + 1;
+                        initImage();
+                    }
+                    case KeyEvent.VK_DOWN -> {
+                        if (y + 1 > 3) {
+                            break;
+                        }
+                        xy[x][y] = xy[x][y + 1];
+                        xy[x][y + 1] = 0;
+
+                        y = y + 1;
+                        initImage();
+                    }
+                    default -> {
+
+                    }
+                }
+
+            }
+        });
+
     }
 
     private void initJMenu() {
@@ -83,4 +189,6 @@ public class GameJFrame extends JFrame {
         //jMenuBar->JFrame
         this.setJMenuBar(jMenuBar);
     }
+
+
 }
