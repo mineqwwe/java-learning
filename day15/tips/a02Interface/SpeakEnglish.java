@@ -4,7 +4,7 @@ package day15.tips.a02Interface;
 //接口只和方法相关， 与具体类归属无关
 public interface SpeakEnglish {
 
-    // 接口成员属性默认是 static 常量
+    // 接口成员属性默认是 final static 常量
     public final static double PI = 3.14;
     double G = 9.8;
 
