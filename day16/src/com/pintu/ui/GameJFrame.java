@@ -16,7 +16,10 @@ public class GameJFrame extends JFrame {
     int y = 0;
 
     // 二维数组
-    int[][] xy = new int[4][4];
+    int[][] XYPosition = new int[4][4];
+
+    //图片位置
+    String path = "day16\\image\\animal\\animal3\\";
 
     public GameJFrame() {
         //初始化窗口
@@ -53,7 +56,7 @@ public class GameJFrame extends JFrame {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
 
-                xy[i][j] = icons[index];
+                XYPosition[i][j] = icons[index];
                 if (icons[index] == 0) {
                     x = i;
                     y = j;
@@ -62,21 +65,21 @@ public class GameJFrame extends JFrame {
             }
         }
 
-        System.out.println(Arrays.deepToString(xy));
+        System.out.println(Arrays.deepToString(XYPosition));
         System.out.println(x + " " + y);
     }
 
 
     private void initImage() {
+        // 移除已经添加的图片
         this.getContentPane().removeAll();
-        int number = 0;
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                JLabel jLabel = new JLabel(new ImageIcon("day16\\image\\animal\\animal3\\" + xy[j][i] + ".jpg"));
+                JLabel jLabel = new JLabel(new ImageIcon(path + XYPosition[j][i] + ".jpg"));
                 jLabel.setBounds(105 * j + 83, 105 * i + 134, 105, 105);
                 jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
                 this.getContentPane().add(jLabel);
-                number++;
             }
         }
         //后添加的在下
@@ -84,6 +87,7 @@ public class GameJFrame extends JFrame {
         bg.setBounds(40, 40, 508, 560);
         this.getContentPane().add(bg);
 
+        //重新绘制
         this.getContentPane().repaint();
     }
 
@@ -107,7 +111,24 @@ public class GameJFrame extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                //NONE
+
+                // 查看完整图片
+                if (e.getKeyCode() == KeyEvent.VK_A) {
+                    // 移除已经添加的图片
+                    getContentPane().removeAll();
+
+                    // all
+                    JLabel all = new JLabel(new ImageIcon(path + "all.jpg"));
+                    all.setBounds(83, 134, 420, 420);
+                    getContentPane().add(all);
+
+                    // 背景
+                    JLabel bg = new JLabel(new ImageIcon("day16/image/background.png"));
+                    bg.setBounds(40, 40, 508, 560);
+                    getContentPane().add(bg);
+
+                    getContentPane().repaint();
+                }
             }
 
             @Override
@@ -117,8 +138,8 @@ public class GameJFrame extends JFrame {
                         if (x - 1 < 0) {
                             break;
                         }
-                        xy[x][y] = xy[x - 1][y];
-                        xy[x - 1][y] = 0;
+                        XYPosition[x][y] = XYPosition[x - 1][y];
+                        XYPosition[x - 1][y] = 0;
 
                         x = x - 1;
                         initImage();
@@ -127,8 +148,8 @@ public class GameJFrame extends JFrame {
                         if (y - 1 < 0) {
                             break;
                         }
-                        xy[x][y] = xy[x][y - 1];
-                        xy[x][y - 1] = 0;
+                        XYPosition[x][y] = XYPosition[x][y - 1];
+                        XYPosition[x][y - 1] = 0;
 
                         y = y - 1;
                         initImage();
@@ -137,8 +158,8 @@ public class GameJFrame extends JFrame {
                         if (x + 1 > 3) {
                             break;
                         }
-                        xy[x][y] = xy[x + 1][y];
-                        xy[x + 1][y] = 0;
+                        XYPosition[x][y] = XYPosition[x + 1][y];
+                        XYPosition[x + 1][y] = 0;
 
                         x = x + 1;
                         initImage();
@@ -147,10 +168,13 @@ public class GameJFrame extends JFrame {
                         if (y + 1 > 3) {
                             break;
                         }
-                        xy[x][y] = xy[x][y + 1];
-                        xy[x][y + 1] = 0;
+                        XYPosition[x][y] = XYPosition[x][y + 1];
+                        XYPosition[x][y + 1] = 0;
 
                         y = y + 1;
+                        initImage();
+                    }
+                    case KeyEvent.VK_A -> {
                         initImage();
                     }
                     default -> {
