@@ -11,6 +11,12 @@ public class GameJFrame extends JFrame {
 
     int[] icons = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
+    //胜利数组
+
+
+    int[][] win = {{1, 5, 9, 13}, {2, 6, 10, 14}, {3, 7, 11, 15}, {4, 8, 12, 0}};
+
+
     // 白框位置
     int x = 0;
     int y = 0;
@@ -74,6 +80,13 @@ public class GameJFrame extends JFrame {
         // 移除已经添加的图片
         this.getContentPane().removeAll();
 
+        //胜利界面
+        if(win()){
+            JLabel win = new JLabel(new ImageIcon("day16/image/win.png"));
+            win.setBounds(203, 283, 197, 73);
+            this.getContentPane().add(win);
+        }
+
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 JLabel jLabel = new JLabel(new ImageIcon(path + XYPosition[j][i] + ".jpg"));
@@ -102,15 +115,23 @@ public class GameJFrame extends JFrame {
     }
 
     private void initKeyListener() {
+
         this.addKeyListener(new KeyListener() {
+
             @Override
             public void keyTyped(KeyEvent e) {
+                if(win()){
+                    return;
+                }
                 //NONE
 
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
+                if(win()){
+                    return;
+                }
 
                 // 查看完整图片
                 if (e.getKeyCode() == KeyEvent.VK_A) {
@@ -133,6 +154,9 @@ public class GameJFrame extends JFrame {
 
             @Override
             public void keyReleased(KeyEvent e) {
+                if(win()){
+                    return;
+                }
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT -> {
                         if (x - 1 < 0) {
@@ -174,7 +198,12 @@ public class GameJFrame extends JFrame {
                         y = y + 1;
                         initImage();
                     }
+                    // 松开后从显示完整图片->变回正常游戏
                     case KeyEvent.VK_A -> {
+                        initImage();
+                    }
+                    case KeyEvent.VK_W ->{
+                        XYPosition = win;
                         initImage();
                     }
                     default -> {
@@ -214,5 +243,14 @@ public class GameJFrame extends JFrame {
         this.setJMenuBar(jMenuBar);
     }
 
-
+    private boolean win() {
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (XYPosition[i][j] != win[i][j]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
